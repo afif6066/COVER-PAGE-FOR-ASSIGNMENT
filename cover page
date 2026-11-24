@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Noakhali Government College Islamic Studies Assignment Cover Maker">
+<title>Assignment Cover Maker | NGC Islamic Studies</title>
+<style>
+:root{--accent:#147d72;--accent2:#d6aa55;--ink:#172a35;--paper:#fff;--soft:#eef5f3}
+*{box-sizing:border-box}body{margin:0;background:#f3f6f8;color:#1c2933;font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif}
+header{background:linear-gradient(120deg,#102e35,#176e68);color:#fff;padding:28px 18px;text-align:center}
+header h1{margin:0;font-size:clamp(22px,4vw,32px)}header p{margin:8px 0 0;color:#d6e8e5}
+.wrap{max-width:1200px;margin:22px auto;padding:0 14px;display:grid;grid-template-columns:minmax(290px,390px) 1fr;gap:20px;align-items:start}
+.panel,.preview-shell{background:#fff;border:1px solid #e1e8eb;border-radius:16px;box-shadow:0 8px 28px #183b4610}
+.panel{padding:18px}.panel h2{font-size:17px;margin:0 0 14px;color:#174d4b}
+.group{margin:0 0 13px}.group label{display:block;font-size:13px;font-weight:700;margin-bottom:5px;color:#33464e}
+input,select{width:100%;padding:10px 11px;border:1px solid #ccd8dc;border-radius:9px;font:inherit;font-size:14px;background:#fff;color:#172a35}
+input:focus,select:focus{outline:2px solid #8ac9bf;border-color:#168477}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.check{display:flex;align-items:center;gap:9px;font-size:13px;margin:10px 0}.check input{width:auto}
+hr{border:0;border-top:1px solid #e7edef;margin:17px 0}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+button{border:0;border-radius:9px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e8f1ef;color:#174d4b}
+button.active,button.primary{background:var(--accent);color:white}
+button.primary{width:100%;padding:13px;margin-top:13px}
+.small{font-size:12px;color:#718087;line-height:1.5}
+.preview-shell{padding:16px;position:sticky;top:12px}
+.toolbar{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.toolbar strong{font-size:14px}.cover{width:min(100%,794px);aspect-ratio:210/297;margin:auto;background:white;color:#18242a;position:relative;overflow:hidden;box-shadow:0 5px 24px #142d351c;padding:8.5%;display:flex;flex-direction:column;align-items:center;text-align:center;border:1px solid #e5e5e5}
+.cover:before{content:"";position:absolute;inset:15px;border:2px solid var(--accent);pointer-events:none}
+.cover:after{content:"";position:absolute;inset:22px;border:1px solid var(--accent2);pointer-events:none}
+.logo{width:78px;height:78px;object-fit:contain;margin:12px auto 10px;display:none}.bismillah{font-family:Georgia,serif;font-size:17px;margin:3px 0 14px;color:var(--accent)}
+.college{font-family:Georgia,serif;font-weight:800;font-size:clamp(17px,2.1vw,25px);letter-spacing:.5px;text-transform:uppercase;color:var(--accent);margin:5px 0}
+.address{font-size:12px;color:#68767b;margin-bottom:15px}.dept{font-size:13px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;margin:8px 0 18px}
+.assignment{font-size:25px;letter-spacing:2px;font-weight:900;margin:8px 0 12px;color:var(--accent)}
+.subject{font-size:14px;font-weight:700;max-width:90%;margin:0 auto 22px;line-height:1.5}
+.info{width:88%;text-align:left;font-size:13px;line-height:1.9;margin-top:4px}.info h3{font-size:14px;color:var(--accent);text-align:center;margin:8px 0;border-bottom:1px solid var(--accent2);padding-bottom:5px}
+.info p{margin:2px 0}.teacher{margin-top:17px}.date{margin-top:auto;font-size:12px;padding-top:18px}.signature{align-self:flex-end;margin:24px 4px 0;border-top:1px solid #777;padding-top:5px;font-size:11px;width:120px}
+.footer{margin-top:10px;font-size:10px;color:#77858a}
+/* twelve cover styles */
+.cover.d2{border:0}.cover.d2:before{inset:0;border:0;background:linear-gradient(90deg,var(--accent) 0 13px,transparent 13px)}
+.cover.d2:after{inset:30px 25px;border:1px dashed var(--accent2)}
+.cover.d3:before{inset:28px;border:5px double var(--accent)}.cover.d3:after{inset:39px;border:1px solid var(--accent2)}
+.cover.d4{border-radius:30px}.cover.d4:before{inset:20px;border:3px solid var(--accent);border-radius:22px}.cover.d4:after{inset:30px;border:1px solid var(--accent2);border-radius:16px}
+.cover.d5:before{inset:0 0 auto;height:18px;background:var(--accent);border:0}.cover.d5:after{inset:auto 0 0;height:13px;background:var(--accent);border:0}
+.cover.d6:before{inset:25px;border:1px solid #777}.cover.d6:after{display:none}
+.cover.d7:before{inset:18px;border:2px dotted var(--accent);border-radius:35px}.cover.d7:after{inset:28px;border:1px solid var(--accent2);border-radius:28px}
+.cover.d8{background:#102735;color:#f6f0df}.cover.d8:before{inset:18px;border:2px solid #d6aa55}.cover.d8:after{inset:27px;border:1px solid #d6aa55}.cover.d8 .college,.cover.d8 .assignment,.cover.d8 .info h3,.cover.d8 .bismillah{color:#e3bf70}.cover.d8 .address,.cover.d8 .footer{color:#d7d4c8}
+.cover.d9:before{inset:0 0 auto;height:9px;background:var(--accent);border:0}.cover.d9:after{inset:25px;border:1px solid var(--accent)}
+.cover.d10:before{inset:0 0 auto;height:75px;background:var(--accent);clip-path:polygon(0 0,100% 0,100% 65%,50% 100%,0 65%);border:0}.cover.d10 .college{margin-top:25px}
+.cover.d11:before{inset:15px;border:7px solid var(--accent);border-radius:50px 10px}.cover.d11:after{inset:29px;border:1px solid var(--accent2);border-radius:40px 5px}
+.cover.d12:before{inset:18px;border:3px solid var(--accent);border-radius:8px}.cover.d12:after{inset:27px;border:1px dashed var(--accent2);border-radius:5px}
+.cover.d12 .logo{width:94px;height:94px}
+@media(max-width:850px){.wrap{grid-template-columns:1fr}.preview-shell{position:static}.cover{width:min(100%,650px)}}
+@media(max-width:480px){.grid2{grid-template-columns:1fr}.panel{padding:14px}.cover{padding:9% 7%}.info{width:91%;font-size:11px}.college{font-size:17px}.dept{font-size:11px}.subject{font-size:12px}.assignment{font-size:21px}}
+@page{size:A4;margin:0}
+@media print{body{background:#fff}.no-print,header,.panel,.toolbar{display:none!important}.wrap{display:block;margin:0;padding:0}.preview-shell{padding:0;border:0;box-shadow:none}.cover{width:210mm;height:297mm;aspect-ratio:auto;box-shadow:none;border:0;margin:0;break-inside:avoid}.cover:before,.cover:after{-webkit-print-color-adjust:exact;print-color-adjust:exact}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* Five additional layouts inspired by the user's reference covers */
+.cover.ref1:before{inset:14px;border:3px double #14583f}
+.cover.ref1:after{inset:23px;border:1px solid #14583f}
+.cover.ref1 .bismillah{background:#075b3d;color:#fff;font-style:italic;font-weight:700;width:88%;padding:10px 5px;margin:2px auto 17px}
+.cover.ref1 .college{color:#142e50;font-size:clamp(17px,2.3vw,25px)}
+.cover.ref1 .dept{margin:0 0 23px}
+.cover.ref1 .assignment{border:3px solid #174b3c;background:#edf7f1;color:#142e50;width:72%;padding:7px;margin:0 auto 22px}
+.cover.ref1 .subject{border:3px solid #174b3c;background:#edf3f8;padding:12px 8px;max-width:86%;margin-bottom:18px}
+.cover.ref1 .info{border:3px solid #174b3c;background:#edf7f1;padding:0 12px 12px;width:78%}
+.cover.ref1 .info h3{background:#142f59;color:#fff;margin:0 -12px 12px;padding:8px}
+.cover.ref1 .footer{align-self:flex-start;border:1px solid #777;padding:4px;background:#fff;color:#222}
+.cover.ref2:before{inset:15px;border:4px double #174b3c}
+.cover.ref2:after{inset:24px;border:1px solid #174b3c}
+.cover.ref2 .bismillah{font-style:italic;color:#174b3c;margin:2px 0 10px}
+.cover.ref2 .college{background:#174b3c;color:#fff;border:2px solid #b99b36;width:90%;padding:10px 5px;margin:4px 0 0}
+.cover.ref2 .dept{background:#174b3c;color:#f4df9a;width:90%;padding:6px;margin:0 0 26px}
+.cover.ref2 .assignment{border:1px solid #174b3c;color:#b29626;width:90%;padding:8px;margin-bottom:0}
+.cover.ref2 .subject{border:1px solid #174b3c;background:#f2f7f5;width:90%;max-width:90%;padding:10px;margin-bottom:23px}
+.cover.ref2 .info{border:2px solid #174b3c;background:#fafbf9;width:90%;padding:0 12px 12px}
+.cover.ref2 .info h3{color:#174b3c;text-align:left;border-bottom:1px solid #b99b36}
+.cover.ref2 .teacher{display:none!important}
+.cover.ref2 .date{width:100%;display:flex;justify-content:space-between}
+.cover.ref2 .signature{display:none}
+.cover.ref3:before{inset:15px;border:4px double #174b3c}
+.cover.ref3:after{inset:25px;border:1px solid #174b3c}
+.cover.ref3 .bismillah{font-size:22px;color:#174b3c;margin:2px 0 13px}
+.cover.ref3 .college{color:#14583f;margin:6px 0}
+.cover.ref3 .dept{background:#075b3d;color:white;border:2px solid #b99b36;padding:8px;width:78%;margin:0 0 24px}
+.cover.ref3 .assignment{color:#b29626;margin:0}
+.cover.ref3 .subject{border-top:4px double #b29626;border-bottom:4px double #b29626;background:#faf8f0;max-width:88%;padding:12px 8px;margin-bottom:17px}
+.cover.ref3 .info{border:2px solid #174b3c;background:#faf8f0;width:78%;padding:0 10px 10px}
+.cover.ref3 .info h3{background:#075b3d;color:#fff;margin:0 -10px 7px;padding:7px}
+.cover.ref3 .info p{padding:3px 2px;border-bottom:1px dotted #c9b76b}
+.cover.ref3 .teacher{display:none!important}
+.cover.ref4:before{inset:18px;border:3px solid #174b3c}
+.cover.ref4:after{inset:27px;border:0;border-top:8px solid #0d5148;border-bottom:8px solid #0d5148}
+.cover.ref4 .bismillah{font-style:italic;color:#174b3c;margin:0 0 9px}
+.cover.ref4 .college{background:#f2f7f5;border:1px solid #174b3c;color:#174b3c;width:92%;padding:10px 4px;margin:0}
+.cover.ref4 .dept{font-weight:500;color:#174b3c;margin:0 0 28px}
+.cover.ref4 .assignment{font-size:30px;color:#174b3c;margin:0 0 10px}
+.cover.ref4 .subject{border:2px solid #257b88;color:#1a6070;width:92%;max-width:92%;padding:10px;margin-bottom:25px}
+.cover.ref4 .info{background:#f7f9fa;border:2px solid #174b3c;width:92%;padding:0 12px 10px}
+.cover.ref4 .info h3{background:#0d5148;color:#fff;text-align:left;margin:0 -12px 8px;padding:8px}
+.cover.ref4 .teacher{display:none!important}
+.cover.ref4 .date{width:100%;display:flex;justify-content:space-between}
+.cover.ref4 .signature{display:none}
+.cover.ref5:before{inset:14px;border:4px double #174b3c}
+.cover.ref5:after{inset:24px;border:1px solid #174b3c}
+.cover.ref5 .bismillah{font-size:21px;color:#b29626;margin:0 0 18px}
+.cover.ref5 .college{color:#174b3c;margin:6px 0 0}
+.cover.ref5 .dept{background:#174b3c;color:#fff;border:2px solid #b29626;padding:8px;width:78%;margin:0 0 22px}
+.cover.ref5 .assignment{color:#b29626;margin:0 0 10px}
+.cover.ref5 .subject{border-left:5px solid #b29626;border-right:2px solid #174b3c;background:#f3f7f5;max-width:84%;padding:12px;margin-bottom:24px}
+.cover.ref5 .info{border:2px solid #174b3c;background:#f9fbfa;width:80%;padding:0 12px 12px}
+.cover.ref5 .info h3{background:#075b3d;color:#fff;margin:0 -12px 9px;padding:8px}
+.cover.ref5 .teacher{display:none!important}
+.cover.ref5 .date{width:100%;display:flex;justify-content:space-between}
+.cover.ref5 .signature{display:none}
+
+</style>
+</head>
+<body>
+<header><h1>Assignment Cover Maker</h1><p>Noakhali Government College · Islamic Studies</p></header>
+<main class="wrap">
+<section class="panel no-print">
+<h2>কভারের তথ্য পূরণ করুন</h2>
+<div class="group"><label>College Logo (ঐচ্ছিক)</label><input id="logoFile" type="file" accept="image/*"></div>
+<label class="check"><input id="showBismillah" type="checkbox" checked> বিসমিল্লাহ দেখান</label>
+<div class="group"><label>College Name</label><input id="college" value="Noakhali Government College"></div>
+<div class="group"><label>College Address</label><input id="address" value="Maijdee, Noakhali-3800"></div>
+<div class="group"><label>Department</label><input id="dept" value="Department of Islamic Studies"></div>
+<div class="group"><label>Assignment On / Subject</label><input id="subject" placeholder="যেমন: Quranic Studies"></div>
+<hr><h2>Submitted By — শিক্ষার্থী</h2>
+<div class="group"><label>Student Name</label><input id="student" placeholder="আপনার নাম"></div>
+<div class="grid2">
+<div class="group"><label>Roll No</label><input id="roll" placeholder="রোল"></div>
+<div class="group"><label>Registration No</label><input id="reg" placeholder="রেজিস্ট্রেশন (ঐচ্ছিক)"></div>
+</div>
+<div class="grid2">
+<div class="group"><label>Session</label><input id="session" placeholder="2025-26"></div>
+<div class="group"><label>Class</label><input id="className" placeholder="B.A. (Honours)"></div>
+</div>
+<hr><h2>Submitted To — শিক্ষক (ঐচ্ছিক)</h2>
+<div class="group"><label>Teacher Name</label><input id="teacher" placeholder="শিক্ষকের নাম"></div>
+<div class="group"><label>Designation</label><input id="designation" placeholder="Lecturer / Assistant Professor"></div>
+<div class="group"><label>Submission Date</label><input id="date" type="date"></div>
+<hr><h2>ডিজাইন নির্বাচন করুন</h2><div class="actions" id="designs"></div>
+<hr><h2>কালার থিম</h2><div class="actions" id="colors"></div>
+<button class="primary" onclick="window.print()">🖨️ Print / Save as PDF (A4)</button>
+<p class="small">PDF সংরক্ষণ করতে Print চাপুন, এরপর প্রিন্টারের জায়গায় “Save as PDF” নির্বাচন করুন।</p>
+</section>
+<section class="preview-shell">
+<div class="toolbar no-print"><strong>লাইভ কভার প্রিভিউ</strong><span class="small">A4 · Portrait</span></div>
+<article class="cover d1" id="cover">
+<img class="logo" id="logoPreview" alt="College logo">
+<div class="bismillah" id="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+<div class="college" id="pCollege">Noakhali Government College</div>
+<div class="address" id="pAddress">Maijdee, Noakhali-3800</div>
+<div class="dept" id="pDept">Department of Islamic Studies</div>
+<div class="assignment">ASSIGNMENT</div>
+<div class="subject" id="pSubject">SUBJECT: —</div>
+<div class="info"><h3>SUBMITTED BY</h3>
+<p><b>Name:</b> <span id="pStudent">—</span></p><p><b>Roll No:</b> <span id="pRoll">—</span></p>
+<p id="regRow"><b>Registration No:</b> <span id="pReg"></span></p><p><b>Session:</b> <span id="pSession">—</span></p>
+<p><b>Class:</b> <span id="pClass">—</span></p></div>
+<div class="info teacher" id="teacherBlock"><h3>SUBMITTED TO</h3><p><b>Name:</b> <span id="pTeacher"></span></p><p><b>Designation:</b> <span id="pDesignation"></span></p></div>
+<div class="date">Date of Submission: <span id="pDate">__/__/____</span></div>
+<div class="signature">Signature</div>
+<div class="footer">Designed for Noakhali Government College · Islamic Studies</div>
+</article>
+</section>
+</main>
+<script>
+const fields={college:'pCollege',address:'pAddress',dept:'pDept',subject:'pSubject',student:'pStudent',roll:'pRoll',reg:'pReg',session:'pSession',className:'pClass',teacher:'pTeacher',designation:'pDesignation'};
+Object.entries(fields).forEach(([id,target])=>{const el=document.getElementById(id);el.addEventListener('input',()=>{let v=el.value.trim();document.getElementById(target).textContent=id==='subject'?(v?'SUBJECT: '+v:'SUBJECT: —'):(v||'—');if(id==='reg')document.getElementById('regRow').style.display=v?'':'none';if(id==='teacher'||id==='designation')document.getElementById('teacherBlock').style.display=(document.getElementById('teacher').value.trim()||document.getElementById('designation').value.trim())?'':'none';});});
+document.getElementById('regRow').style.display='none';document.getElementById('teacherBlock').style.display='none';
+document.getElementById('showBismillah').addEventListener('change',e=>document.getElementById('bismillah').style.display=e.target.checked?'':'none');
+document.getElementById('date').addEventListener('change',e=>{const v=e.target.value;document.getElementById('pDate').textContent=v?new Date(v+'T00:00:00').toLocaleDateString('en-GB'):'__/__/____';});
+document.getElementById('logoFile').addEventListener('change',e=>{const f=e.target.files[0],img=document.getElementById('logoPreview');if(f){img.src=URL.createObjectURL(f);img.style.display='block';}else img.style.display='none';});
+const designNames=['🌿 Eucalyptus','🍃 Sage','✨ Golden Frame','💜 Purple Round','🔵 Blue Bar','📄 Classic','🌸 Mint Floral','🖤 Navy Gold','🔹 Minimal','📐 Blue Ribbon','🎓 Pill Border','🕌 Islamic Frame'];
+const designBox=document.getElementById('designs');
+const referenceDesigns=['Reference 1 · Green Classic','Reference 2 · Green & Gold','Reference 3 · Islamic Gold','Reference 4 · Modern Teal','Reference 5 · Minimal Green'];
+referenceDesigns.forEach((n,i)=>{const b=document.createElement('button');b.textContent='★ '+n;b.onclick=()=>{document.getElementById('cover').className='cover ref'+(i+1);[...designBox.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');};designBox.appendChild(b);});
+designNames.forEach((n,i)=>{const b=document.createElement('button');b.textContent=(i+1)+'. '+n;if(i===0)b.classList.add('active');b.onclick=()=>{document.getElementById('cover').className='cover d'+(i+1);[...designBox.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');};designBox.appendChild(b);});
+const themes=[['💚 Green Teal','#147d72','#d6aa55'],['⚫ Black White','#30383c','#9aa4a8'],['🩷 Pink','#bd668c','#e9b7c9'],['❤️ Red','#a8323e','#d6aa55'],['⬛ Charcoal','#20252b','#b7a47a'],['💜 Purple','#6952a0','#c5a7dc'],['🧡 Orange','#c66a2b','#e4b36b']];
+const colorBox=document.getElementById('colors');themes.forEach((t,i)=>{const b=document.createElement('button');b.textContent=t[0];if(i===0)b.classList.add('active');b.onclick=()=>{document.documentElement.style.setProperty('--accent',t[1]);document.documentElement.style.setProperty('--accent2',t[2]);[...colorBox.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');};colorBox.appendChild(b);});
+</script>
+</body></html>
